@@ -1,0 +1,657 @@
+---
+title: "Building Research Leaders for Early Career Researchers"
+subtitle: "Evaluation (December 2024)"
+# author: "Jen Beaudry"
+# date: "2024-04-12"
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+header-includes:
+  - \usepackage{caption}
+  - \usepackage{titling}
+    \setlength{\droptitle}{-2cm} # removes some of the white space above title
+  - \pretitle{\begin{center}
+    \includegraphics[width=1.5in, height=1.5in]{flinders-university-horizontal-master.png}\LARGE\\} # adds logo
+  - \posttitle{\end{center}}
+  - \usepackage{fancyhdr}
+  - \fancypagestyle{plain}{\pagestyle{fancy}} # sets the footer on page 1
+  - \pagestyle{fancy} # sets the footer on page 2 and beyond
+  - \fancyhf{} # clears existing header & footer
+  - \renewcommand{\headrulewidth}{0pt} # removes the line from the header
+  - \fancyfoot[L]{Building Research Leaders for ECRs} # my name in footer
+  - \fancyfoot[R]{\thepage} # page number in foooter
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE,
+                      include = TRUE, 
+                      eval = TRUE)
+
+```
+
+
+```{r library, include=FALSE}
+
+# devtools::install_github("adletaw/captioner")
+
+library(here)
+library(tidyverse)
+library(kableExtra)
+library(RColorBrewer)
+library(captioner)
+
+```
+
+```{r run preprocessing script, include = FALSE}
+
+source(here("analysis", "brl_preprocessing.R"))
+
+```
+
+
+```{r functions, include = FALSE}
+
+styler_pdf <- function(dat) {
+  dat %>%
+     kable_styling(full_width = F, 
+                latex_options = c("striped", "HOLD_position", "repeat_header"))
+}
+
+source(here("..", "functions", "meta_rename.R"))
+source(here("..", "functions", "ratings_summary.R"))
+
+table_nums <- captioner(prefix = "Table")
+fig_nums <- captioner(prefix = "Figure")
+
+```
+
+
+```{r captions, include = FALSE}
+
+# I'm using this to allow me to reference the tables. 
+# I'm using kable for the captions within the tables because it allows me to break 
+  # the table over the pages
+
+table_nums(name = "info_workshop", 
+           caption = "'What did you expect from this workshop?'")
+
+table_nums(name = "expectations", 
+           caption = "'Please elaborate on how the workshop aligned with your expectations.'")
+
+table_nums(name = "career_stage", 
+           caption = "'Please elaborate on whether this workshop was appropriate for your career stage.'")
+
+table_nums(name = "action", 
+          caption = "'Did this workshop inspire you to take any immediate action(s)?'")
+
+table_nums(name = "success",
+             caption = "'Do you credit any research successes to the workshop?'")
+
+table_nums(name = "best_parts",
+             caption = "'What were the best parts of the workshop?'")
+
+table_nums(name = "improvement",
+             caption = "'Any suggestions for improvement?'")
+
+table_nums(name = "anything_else",
+             caption = "'Anything else you want us to know?'")
+
+table_nums(name = "attendance", 
+           caption = "We asked participants to explain why they attended the number of sessions that they did.")
+
+fig_nums(name = "ratings_summary", 
+         caption = "Ratings of different aspects of the workshop")
+
+```
+
+
+
+```{r load data, include=FALSE}
+
+df <- read_csv(here::here("data", "brl_eval_processed_data.csv"), lazy = FALSE)
+
+```
+
+
+```{r code factors, include=FALSE}
+
+
+# turn all ratings variables into factors, use datapasta to do this!
+# the code below works
+
+df$expectations <- factor(
+  df$expectations,
+  levels = c(
+    "Exceeded my expectations",
+    "Met my expectations",
+    "Partly met my expectations",
+    "Did not meet my expectations"
+  )
+)
+
+
+df$post_phd <- factor(
+  df$post_phd,
+  levels = c(
+    "Less than 5 years post-PhD",
+    "5 to 10 years post-PhD",
+    "11 to 15 years post-PhD"
+  )
+)
+#   "More than 15 years post-PhD" [no one]
+
+# work with all rating items together because they have the same levels
+
+cols <- c("research_leadership",
+  "research_productivity",
+  "expert",
+  "engaging",
+  "balance",
+  "current_role",
+  "future_roles",
+  "reengagement")
+
+
+# turn the cols columns into factors
+df <- df %>% 
+  mutate(across (all_of(cols), ~factor(., 
+                                       levels = c("N/A", 
+                                           "Strongly disagree",
+                                           "Somewhat disagree",
+                                           "Neither agree nor disagree",
+                                           "Somewhat agree",
+                                           "Strongly agree"))))
+
+```
+
+
+```{r sessions attendance}
+
+participants <- 21
+
+#breadcrumb for caption: \captionsetup[table]{labelformat=empty}
+# that's if I include header use caption in the yaml
+
+```
+
+
+# Executive Summary
+
+This report provides the feedback from the 2024 
+*Building Research Leaders for Early Career Researchers* workshop series offered to 
+`r participants` early career researchers (ECRs) at Flinders University. This workshop
+series was sponsored by the Deputy Vice-Chancellor (Research) and participants 
+were nominated by the College Deans (Research). 
+
+The feedback was mixed. The majority of the respondents found the workshop series
+valuable, engaging, and informative. They also appreciated the opportunity to 
+connect with other ECRs across the University. Importantly, they reported that 
+the workshop series inspired them to take immediate actions including implementing 
+strategies to get more out of mentoring partnerships, revising their publication plans, 
+and scheduling time for research. They also attributed several successes to the 
+workshop series, including new collaborations, new publications, and more productive
+partnerships with their Honours and HDR students. 
+
+Unfortunately, two respondents found little value in the workshop series. They did
+not think it was pitched at the right level. Given the anonymous responses, I could 
+not determine whether those respondents were research-only staff who were not facing 
+other demands, which is my assumption. 
+
+I think that this degree of dissatisfaction is largely owed to the mismatch between
+the title for the program and the content. Given that the early career researchers 
+are starting out in their careers, the workshop focuses on maintaining and increasing
+research productivity in the face of new demands on their time. As such, it is 
+more appropriate for staff who recently started balanced academic roles or staff 
+who are juggling research in the face of other duties (e.g., clinician researchers, 
+academics with more service roles, etc.). The workshop series does little to address 
+research leadership, but it does help the ECRs to develop the skills they need to 
+be a successful researcher in the current academic environment. 
+
+I recommend running this program again, with two changes: 
+
+  * revising the title to something more appropriate like "Thriving in Research" 
+  or "Building Productive Researchers", and
+  * targeting recruitment at early career researchers who are not in research-only roles. 
+
+
+# Detailed Evaluation
+
+Hugh Kearns from ThinkWell designed and delivered the 
+*Building Research Leaders for Early Career Researchers* workshop. This workshop 
+was run as series of three full-day sessions from April to October 2024. 
+Of the `r participants` participants in the workshop, `r nrow(df)` completed this evaluation.
+
+In previous years, this series was offered over 6 days (one full day and five half-days). 
+In response to less than perfect attendance, I requested that Hugh collapse
+the material into fewer full days, with the hopes that attendance would be better. 
+Psychologically, it's easier to commit to three full days rather than 
+five half-days. This year's attendance confirmed that this format worked better for
+our participants. 
+
+On average, the respondents to this survey attended `r round(mean(df$attendance),2)` 
+of the 3 sessions, with everyone attending at least `r min(df$attendance)` sessions.
+Their explanations for why they attended the sessions that they did are shown in 
+`r table_nums("attendance", display = "cite")` in the Appendix. 
+
+We asked participants to rate a number of items about the workshop and the trainer 
+on a scale from 'strongly disagree' to 'strongly agree' (see 
+`r fig_nums(name = "ratings_summary", display = "cite")`).
+
+\
+`r fig_nums(name = "ratings_summary")`
+
+```{r creating tibbles for all ratings, include = FALSE}
+
+# get total n to calculate percentages
+
+total_n <- length(df$id)
+
+# SELECT THE RATING COLUMNS & SAVE AS A TIBBLE I WANT TO SUMMARISE & PLOT USING THE RATING_SUMMARY FUNCTION
+
+ratings <- df %>% 
+  select (c("research_leadership",
+  "research_productivity",
+  "expert",
+  "engaging",
+  "balance",
+  "current_role",
+  "future_roles",
+  "reengagement"))
+
+# UPDATE THE COLUMNS PARAMETER WITH THE STRINGS FROM ABOVE
+
+columns <- c("research_leadership",
+  "research_productivity",
+  "expert",
+  "engaging",
+  "balance",
+  "current_role",
+  "future_roles",
+  "reengagement")
+
+# RUN THE FUNCTION & APPLY TO ALL COLUMNS IN OUR DF
+
+ratings_summary <- purrr::map_dfr(columns, .f = function(column) {
+	ratings_summary(ratings, column)
+})
+
+# remove the NA responses
+ratings_summary <- na.omit(ratings_summary)
+
+
+# also, figure out how many responded with the agree ratings. I use these in the 
+  # text summaries later
+
+# [breadcrumb: can I use apply for this too?? need to do this later!]
+
+agree <- c("Strongly agree", "Somewhat agree")
+
+
+```
+
+```{r plot the ratings}
+
+# Relevel the responses [changes order in ggplot, but not the dataframe]
+# plot it first to see if I need to do this
+
+# tor_rating$rating <- factor (rating$rating, levels = c("Strongly agree",
+#                                            "Somewhat agree",
+#                                            "Neither agree nor disagree",
+#                                            "Somewhat disagree",
+#                                            "Strongly disagree"))
+
+# put them in reverse order of how I want them to appear
+ratings_summary$rating_item <-
+  factor (
+    ratings_summary$rating_item,
+    levels = c(
+      "reengagement", 
+      "future_roles",
+      "current_role",
+      "balance",
+      "engaging",
+      "expert",
+      "research_leadership",
+      "research_productivity"
+    )
+  )
+
+# [breadcrumb] I can delete this later, but this is useful to create the plot_labs
+
+# labs <- meta %>%
+#   filter(scale == "common_ratings") %>%
+#   pull(item_text_short) %>%
+# datapasta::vector_paste_vertical()
+
+
+# plot it
+
+
+ggplot(ratings_summary, aes(fill = rating, y = percentage, x = rating_item)) +
+  geom_bar(position="fill", stat="identity", colour = "black") +
+  scale_fill_brewer(
+    palette = "Blues",
+    na.value = "grey50",
+    direction = 1,
+    labels = c(
+      "N/A",
+      "Strongly disagree",
+      "Somewhat disagree",
+      "Neither agree nor disagree",
+      "Somewhat agree",
+      "Strongly agree"
+    )
+  ) +
+  labs (x = element_blank(),
+        y = "Percentage") +
+  theme_classic() +
+theme(legend.title = element_blank()) +
+    coord_flip() +
+  scale_x_discrete(
+    labels = c(
+      "I would attend another workshop \nfrom this trainer",
+      "I expect that the content will be \nuseful in my future role(s)",
+      "The workshop content was relevant \nto my current role",
+      "The workshop had a good balance \nof group discussion and presentation",
+      "The trainer was very engaging",
+      "The trainer is an expert in \nthe sector",
+      "The workshop provided me with \na greater understanding of \nresearch leadership",
+      "The workshop provided me with \nstrategies to increase my \nresearch productivity"
+ )
+) +
+  scale_y_continuous(labels = c("0", "25", "50", "75", "100"))
+
+# FYI: the labels are always in opposite directions from the data set!
+
+```
+
+\
+
+As indicated in `r table_nums("info_workshop", display = "cite")`, the respondents
+had several expectations of the workshop series, including learning about research
+leadership, building a research profile, and general career advice. 
+
+
+```{r info_workshop table, include = TRUE}
+
+info_workshop <- df %>% 
+    mutate(Participant = 1:n()) %>% 
+  select (Participant, info_workshop) %>% 
+  filter (!is.na(info_workshop))
+
+
+kable(
+  info_workshop,
+  booktabs = T, 
+  align = c('cl'),
+  linesep = "\\addlinespace",
+  caption = "'What did you expect from this workshop?'",
+  col.names = c("Respondent", "Response")
+  ) %>%
+  column_spec (column = 2, width = "14cm") %>%
+  styler_pdf
+
+```
+
+
+```{r expectations data, include = TRUE}
+
+expect <- df %>% 
+    dplyr::group_by (expectations) %>% 
+  count()
+
+```
+
+
+The respondents varied as to whether the program met their expectations. Of the `r sum(expect$n)` respondents,  
+
+  * `r round((expect[1,2]/nrow(df))*100,2)`% said that the program exceeded their expectations,
+  * `r round((expect[2,2]/nrow(df))*100,2)`% said that the program met their expectations,
+  * `r round((expect[3,2]/nrow(df))*100,2)`% said that the program partly met their expectations, and 
+  * `r round((expect[4,2]/nrow(df))*100,2)`% said that the program did not meet their expectations. 
+
+Their explanations of how the program aligned with their expectations are shown 
+in `r table_nums("expectations", display = "cite")`. As mentioned in the Executive 
+Summary, most of the responses were very positive about the program. 
+
+
+```{r expectations table, include = TRUE}
+
+expectations <- df %>% 
+    mutate(Participant = 1:n()) %>% 
+  select (Participant, expect_comment) %>% 
+  filter (!is.na(expect_comment))
+
+
+kable(
+  expectations,
+  booktabs = T, 
+  align = c('cl'),
+  linesep = "\\addlinespace",
+  caption = "'Please elaborate on how the workshop aligned with your expectations.'",
+  col.names = c("Respondent", "Response")
+  ) %>%
+  column_spec (column = 2, width = "14cm") %>%
+  styler_pdf
+
+```
+
+
+```{r career stage, include = TRUE}
+
+# remove the post-PhD because it's repeated in every response
+df$post_phd <- str_remove(df$post_phd, " post-PhD")
+
+
+years <- df %>% 
+    dplyr::group_by (post_phd) %>% 
+  count()
+
+# change the text to be used in the markdown
+years$post_phd <- str_replace(years$post_phd, "Less", "less")
+
+
+```
+
+
+We had a mix of participants in this workshop (nominated by their Deans of Research). 
+The respondents to the survey reflected this mix; `r years[2,2]` respondents
+were `r years [2,1]` post-PhD and `r years[1,2]` respondents were `r years [1,1]` post-PhD. 
+
+Participants reported whether or not the program aligned with their career 
+stage and explained why or why not it was suited to them (see `r table_nums("career_stage", display = "cite")`).
+These responses were interesting because the more junior researchers said that it 
+covered material that was not yet relevant for them, like supervision, but the more
+senior researchers indicated that it was more appropriate for early career researchers. 
+This variation in responses likely reflects that years post-PhD might not be a 
+suitable proxy for researchers' experience as an independent academic. 
+
+
+```{r careerstage table, include = TRUE}
+
+career_stage <- df %>% 
+  select(c(id, post_phd, careerstage_yes, careerstage_no)) %>% 
+  replace_na(list(careerstage_yes = "", careerstage_no = "")) %>% 
+  arrange(desc(post_phd))
+
+
+kable(
+  career_stage,
+  booktabs = T, 
+  align = c('clll'),
+  linesep = "\\addlinespace",
+  caption = "'Please elaborate on whether this workshop was appropriate for your career stage.'",
+  col.names = c("Respondent", "Years post PhD", "Reasons why it was appropriate", "Reasons why it was not appropriate")
+  ) %>%
+  column_spec (column = 3, width = "5cm") %>%
+   column_spec (column = 4, width = "5cm") %>%
+  styler_pdf
+
+```
+
+\newpage
+As shown in `r table_nums("action", display = "cite")`, respondents were inspired
+by the program to take a variety of actions ranging from implementing strategies for
+paper writing, better time management, and seeking out new collaborations.
+
+```{r action table, include = TRUE}
+
+action <- df %>% 
+    mutate(Participant = 1:n()) %>% 
+  select (Participant, actions) %>% 
+  filter (!is.na(actions))
+
+
+kable(
+  action,
+  booktabs = T, 
+  align = c('cl'),
+  linesep = "\\addlinespace",
+  caption = "'Did this workshop inspire you to take any immediate action(s)?'",
+  col.names = c("Respondent", "Response")
+  ) %>%
+  column_spec (column = 2, width = "14cm") %>%
+  styler_pdf
+
+```
+
+As shown in `r table_nums("success", display = "cite")`, some but not all respondents 
+credited research successes to the workshop series, including publications, successful 
+grant applications and new research collaborations. 
+
+
+```{r success table, include = TRUE}
+
+success <- df %>% 
+    mutate(Participant = 1:n()) %>% 
+  select (Participant, success) %>% 
+  filter (!is.na(success))
+
+
+kable(
+  success,
+  booktabs = T, 
+  align = c('cl'),
+  linesep = "\\addlinespace",
+  caption = "'Do you credit any research successes to the workshop?'",
+  col.names = c("Respondent", "Response")
+  ) %>%
+  column_spec (column = 2, width = "14cm") %>%
+  styler_pdf
+
+```
+
+
+The best parts of the workshop included interacting with other colleagues across 
+the University, having an opportunity to plan for their careers, and realising
+that everyone is facing the same hurdles (see `r table_nums("best_parts", display = "cite")`).
+
+
+```{r best_parts table, include = TRUE}
+
+best <- df %>% 
+    mutate(Participant = 1:n()) %>% 
+  select (Participant, best_parts) %>% 
+  filter (!is.na(best_parts))
+
+kable(
+  best,
+    booktabs = T, 
+  align = c('cl'),
+  linesep = "\\addlinespace",
+  caption = "'What were the best parts of the workshop?'",
+  col.names = c("Respondent", "Response")
+  ) %>%
+  column_spec (column = 2, width = "14cm") %>%
+  styler_pdf
+
+```
+
+Participants had a few suggestions as to how the program could be improved, 
+including renaming the program to better align with the content and an 
+opportunity to set more goals at the end of the workshop (see `r table_nums("improvement", display = "cite")`).
+
+```{r improvement table, include = TRUE}
+
+improve <- df %>% 
+    mutate(Participant = 1:n()) %>% 
+  select (Participant, improvement) %>% 
+  filter (!is.na(improvement))
+
+
+kable(
+  improve,
+    booktabs = T, 
+  align = c('cl'),
+  linesep = "\\addlinespace",
+  caption = "'Any suggestions for improvement?'",
+  col.names = c("Respondent", "Response")
+  ) %>%
+  column_spec (column = 2, width = "14cm") %>%
+  styler_pdf
+
+```
+
+
+Finally, we asked the participants if there was anything else they wanted us to know
+(see `r table_nums("anything_else", display = "cite")`).
+
+
+```{r anything else table, include = TRUE}
+
+anything_else <- df %>% 
+    mutate(Participant = 1:n()) %>% 
+  select (Participant, anything_else) %>% 
+  filter (!is.na(anything_else))
+
+
+kable(
+  anything_else,
+    booktabs = T, 
+  align = c('cl'),
+  linesep = "\\addlinespace",
+  caption = "'Anything else you want us to know?'",
+  col.names = c("Respondent", "Response")
+  ) %>%
+  column_spec (column = 2, width = "14cm") %>%
+  styler_pdf
+
+
+```
+
+\
+
+
+If you have any questions about this workshop series or report, please contact 
+Dr Jen Beaudry, Manager, Researcher Training, Development and Communication in 
+Research Development and Support. 
+
+\newpage
+# Appendix
+
+```{r attendance table, include = TRUE}
+
+
+attendance <- df %>% 
+    mutate(Participant = 1:n()) %>% 
+  select (Participant, attendance_text) %>% 
+  filter (!is.na(attendance_text))
+
+
+kable(
+  attendance,
+  booktabs = T, 
+  align = c('cl'),
+  linesep = "\\addlinespace",
+  caption = "We asked participants to explain why they attended the number of sessions that they did.",
+  col.names = c("Respondent", "Response")
+  ) %>%
+  column_spec (column = 2, width = "14cm") %>%
+  styler_pdf
+
+
+
+```
+
+
