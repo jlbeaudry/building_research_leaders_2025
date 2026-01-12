@@ -1,8 +1,8 @@
 ---
 title: "Building Research Leaders for Early Career Researchers"
-subtitle: "Evaluation (December 2024)"
+subtitle: "Evaluation (December 2025)"
 # author: "Jen Beaudry"
-# date: "2024-04-12"
+# date: "2025-10-12"
 output: pdf_document
 editor_options: 
   chunk_output_type: console
@@ -11,7 +11,7 @@ header-includes:
   - \usepackage{titling}
     \setlength{\droptitle}{-2cm} # removes some of the white space above title
   - \pretitle{\begin{center}
-    \includegraphics[width=1.5in, height=1.5in]{flinders-university-horizontal-master.png}\LARGE\\} # adds logo
+    \includegraphics[width=1.5in, height=0.5in]{flinders-university-horizontal-master.png}\LARGE\\} # adds logo
   - \posttitle{\end{center}}
   - \usepackage{fancyhdr}
   - \fancypagestyle{plain}{\pagestyle{fancy}} # sets the footer on page 1
@@ -168,7 +168,7 @@ df <- df %>%
 
 ```{r sessions attendance}
 
-participants <- 21
+participants <- 18
 
 #breadcrumb for caption: \captionsetup[table]{labelformat=empty}
 # that's if I include header use caption in the yaml
@@ -178,65 +178,63 @@ participants <- 21
 
 # Executive Summary
 
-This report provides the feedback from the 2024 
+This report provides the feedback from the 2025 
 *Building Research Leaders for Early Career Researchers* workshop series offered to 
 `r participants` early career researchers (ECRs) at Flinders University. This workshop
 series was sponsored by the Deputy Vice-Chancellor (Research) and participants 
 were nominated by the College Deans (Research). 
 
-The feedback was mixed. The majority of the respondents found the workshop series
-valuable, engaging, and informative. They also appreciated the opportunity to 
-connect with other ECRs across the University. Importantly, they reported that 
-the workshop series inspired them to take immediate actions including implementing 
-strategies to get more out of mentoring partnerships, revising their publication plans, 
+The majority of the respondents found the workshop series valuable, engaging, 
+and informative. They also appreciated the opportunity to connect with other ECRs 
+across the University. Importantly, they reported that the workshop series inspired 
+them to take immediate actions including finishing manuscripts that were near submission 
 and scheduling time for research. They also attributed several successes to the 
-workshop series, including new collaborations, new publications, and more productive
-partnerships with their Honours and HDR students. 
+workshop series, including new publications and a renewed commitment to focusing
+more on their core work. 
 
-Unfortunately, two respondents found little value in the workshop series. They did
-not think it was pitched at the right level. Given the anonymous responses, I could 
-not determine whether those respondents were research-only staff who were not facing 
-other demands, which is my assumption. 
-
-I think that this degree of dissatisfaction is largely owed to the mismatch between
-the title for the program and the content. Given that the early career researchers 
-are starting out in their careers, the workshop focuses on maintaining and increasing
-research productivity in the face of new demands on their time. As such, it is 
-more appropriate for staff who recently started balanced academic roles or staff 
-who are juggling research in the face of other duties (e.g., clinician researchers, 
-academics with more service roles, etc.). The workshop series does little to address 
+As indicated in my 2024 report, the workshop series does little to address 
 research leadership, but it does help the ECRs to develop the skills they need to 
-be a successful researcher in the current academic environment. 
+be a successful researcher, particularly for those balancing research with teaching or clinical roles,
+in the current academic environment. 
 
-I recommend running this program again, with two changes: 
-
-  * revising the title to something more appropriate like "Thriving in Research" 
-  or "Building Productive Researchers", and
-  * targeting recruitment at early career researchers who are not in research-only roles. 
+I recommend running this program again, targeting recruitment at early career 
+researchers who are not in research-only roles. I also recommend revising the 
+title to something more appropriate like "Thriving in Research for Early Career 
+Researchers" or "Research Productivity Skills for Early Career Researchers". 
 
 
 # Detailed Evaluation
 
 Hugh Kearns from ThinkWell designed and delivered the 
 *Building Research Leaders for Early Career Researchers* workshop. This workshop 
-was run as series of three full-day sessions from April to October 2024. 
+was run as series of three full-day sessions from April to October 2025. 
 Of the `r participants` participants in the workshop, `r nrow(df)` completed this evaluation.
 
 In previous years, this series was offered over 6 days (one full day and five half-days). 
-In response to less than perfect attendance, I requested that Hugh collapse
+In response to less than ideal attendance, I requested that Hugh collapse
 the material into fewer full days, with the hopes that attendance would be better. 
 Psychologically, it's easier to commit to three full days rather than 
-five half-days. This year's attendance confirmed that this format worked better for
-our participants. 
+five half-days. We started this approach last year, and it worked well 
+again this year; our attendance rate of 91% across the three days confirmed that 
+this format worked for our participants. 
 
 On average, the respondents to this survey attended `r round(mean(df$attendance),2)` 
 of the 3 sessions, with everyone attending at least `r min(df$attendance)` sessions.
-Their explanations for why they attended the sessions that they did are shown in 
-`r table_nums("attendance", display = "cite")` in the Appendix. 
+Their explanations for why they attended the number of sessions that they did are shown in 
+`r table_nums("attendance", display = "cite")` in the Appendix. Most respondents indicated
+that they attended all three sessions because they valued the development opportunity; 
+the two who reported that they could not attend one session cited a medical appointment
+and "competing demands". In response to another question, one researcher reported 
+that three full-day sessions worked well because they "could block out that time and prioritise it" 
+(see `r table_nums("improvement", display = "cite")`).
 
-We asked participants to rate a number of items about the workshop and the trainer 
+We asked participants to rate a several items about the workshop and the trainer 
 on a scale from 'strongly disagree' to 'strongly agree' (see 
-`r fig_nums(name = "ratings_summary", display = "cite")`).
+`r fig_nums(name = "ratings_summary", display = "cite")`). Most respondents
+agreed with the statements, with only a few neutral ratings and no disagreement ratings. 
+Importantly, all respondents agreed that Hugh was engaging, an expert in the sector, 
+that the  content would be useful in their future roles, and that they learned 
+strategies to increase their research productivity.
 
 \
 `r fig_nums(name = "ratings_summary")`
@@ -350,12 +348,12 @@ theme(legend.title = element_blank()) +
     coord_flip() +
   scale_x_discrete(
     labels = c(
-      "I would attend another workshop \nfrom this trainer",
+      "I would attend another \nworkshop from this trainer",
       "I expect that the content will be \nuseful in my future role(s)",
       "The workshop content was relevant \nto my current role",
       "The workshop had a good balance \nof group discussion and presentation",
       "The trainer was very engaging",
-      "The trainer is an expert in \nthe sector",
+      "The trainer is an expert \nin the sector",
       "The workshop provided me with \na greater understanding of \nresearch leadership",
       "The workshop provided me with \nstrategies to increase my \nresearch productivity"
  )
@@ -370,7 +368,8 @@ theme(legend.title = element_blank()) +
 
 As indicated in `r table_nums("info_workshop", display = "cite")`, the respondents
 had several expectations of the workshop series, including learning about research
-leadership, building a research profile, and general career advice. 
+leadership, tips to thrive as a balanced academic, building a research profile, 
+and general career advice for those early in their academic career. 
 
 
 ```{r info_workshop table, include = TRUE}
@@ -406,15 +405,17 @@ expect <- df %>%
 
 The respondents varied as to whether the program met their expectations. Of the `r sum(expect$n)` respondents,  
 
-  * `r round((expect[1,2]/nrow(df))*100,2)`% said that the program exceeded their expectations,
-  * `r round((expect[2,2]/nrow(df))*100,2)`% said that the program met their expectations,
-  * `r round((expect[3,2]/nrow(df))*100,2)`% said that the program partly met their expectations, and 
-  * `r round((expect[4,2]/nrow(df))*100,2)`% said that the program did not meet their expectations. 
+  * `r round((expect[1,2]/nrow(df))*100,2)`% (*n* = `r expect[1,2]`) said that the program exceeded their expectations,
+  * `r round((expect[2,2]/nrow(df))*100,2)`% (*n* = `r expect[2,2]`) said that the program met their expectations, and
+  * `r round((expect[3,2]/nrow(df))*100,2)`% (*n* = `r expect[3,2]`) said that the program partly met their expectations. 
+  * No one said that the program did not meet their expectations. 
 
 Their explanations of how the program aligned with their expectations are shown 
 in `r table_nums("expectations", display = "cite")`. As mentioned in the Executive 
-Summary, most of the responses were very positive about the program. 
-
+Summary, most of the responses were very positive about the program. One researcher, 
+however, felt that the content was targeted more toward PhD students; in contrast,
+other researchers indicated that the workshops focused on excelling in research
+as academics.
 
 ```{r expectations table, include = TRUE}
 
@@ -426,6 +427,8 @@ expectations <- df %>%
 
 kable(
   expectations,
+  format = "latex",
+  longtable = T,
   booktabs = T, 
   align = c('cl'),
   linesep = "\\addlinespace",
@@ -461,11 +464,9 @@ were `r years [2,1]` post-PhD and `r years[1,2]` respondents were `r years [1,1]
 
 Participants reported whether or not the program aligned with their career 
 stage and explained why or why not it was suited to them (see `r table_nums("career_stage", display = "cite")`).
-These responses were interesting because the more junior researchers said that it 
-covered material that was not yet relevant for them, like supervision, but the more
-senior researchers indicated that it was more appropriate for early career researchers. 
-This variation in responses likely reflects that years post-PhD might not be a 
-suitable proxy for researchers' experience as an independent academic. 
+These responses were interesting because with the exception of one of the less-
+experienced researcher, all respondents thought it was appropriate for their career
+stage regardless of whether their PhD was conferred more or less than 5 years ago.
 
 
 ```{r careerstage table, include = TRUE}
@@ -478,6 +479,7 @@ career_stage <- df %>%
 
 kable(
   career_stage,
+  format = "latex",
   booktabs = T, 
   align = c('clll'),
   linesep = "\\addlinespace",
@@ -490,10 +492,10 @@ kable(
 
 ```
 
-\newpage
 As shown in `r table_nums("action", display = "cite")`, respondents were inspired
-by the program to take a variety of actions ranging from implementing strategies for
-paper writing, better time management, and seeking out new collaborations.
+by the program to take a variety of actions ranging from developing and revising 
+research plans, implementing strategies for paper writing, tackling 'zombie' 
+manuscripts that were near submission, better time management, and seeking out new collaborations.
 
 ```{r action table, include = TRUE}
 
@@ -505,6 +507,8 @@ action <- df %>%
 
 kable(
   action,
+  format = "latex",
+  longtable = T,
   booktabs = T, 
   align = c('cl'),
   linesep = "\\addlinespace",
@@ -569,8 +573,12 @@ kable(
 ```
 
 Participants had a few suggestions as to how the program could be improved, 
-including renaming the program to better align with the content and an 
-opportunity to set more goals at the end of the workshop (see `r table_nums("improvement", display = "cite")`).
+including focusing more on leading grant-funded projects and focusing more on 
+all three roles of an academic rather than solely on research 
+(see `r table_nums("improvement", display = "cite")`). I will inform Hugh that 
+the respondents would prefer less time hearing from their colleagues. Although this 
+is an important part of the workshop series, it seems that the focus needs to 
+swing back to allow a little less time for sharing. 
 
 ```{r improvement table, include = TRUE}
 
