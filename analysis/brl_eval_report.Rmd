@@ -214,8 +214,8 @@ In previous years, this series was offered over 6 days (one full day and five ha
 In response to less than ideal attendance, I requested that Hugh collapse
 the material into fewer full days, with the hopes that attendance would be better. 
 Psychologically, it's easier to commit to three full days rather than 
-five half-days. We started this approach last year, and it worked well 
-again this year; our attendance rate of 91% across the three days confirmed that 
+five half-days. We started this approach in 20214, and it worked well 
+again in 2025; our attendance rate of 91% across the three days confirmed that 
 this format worked for our participants. 
 
 On average, the respondents to this survey attended `r round(mean(df$attendance),2)` 
@@ -228,7 +228,7 @@ and "competing demands". In response to another question, one researcher reporte
 that three full-day sessions worked well because they "could block out that time and prioritise it" 
 (see `r table_nums("improvement", display = "cite")`).
 
-We asked participants to rate a several items about the workshop and the trainer 
+We asked participants to rate several items about the workshop and the trainer 
 on a scale from 'strongly disagree' to 'strongly agree' (see 
 `r fig_nums(name = "ratings_summary", display = "cite")`). Most respondents
 agreed with the statements, with only a few neutral ratings and no disagreement ratings. 
@@ -464,8 +464,8 @@ were `r years [2,1]` post-PhD and `r years[1,2]` respondents were `r years [1,1]
 
 Participants reported whether or not the program aligned with their career 
 stage and explained why or why not it was suited to them (see `r table_nums("career_stage", display = "cite")`).
-These responses were interesting because with the exception of one of the less-
-experienced researcher, all respondents thought it was appropriate for their career
+These responses were interesting because with the exception of one of the 
+more junior researchers, all respondents thought it was appropriate for their career
 stage regardless of whether their PhD was conferred more or less than 5 years ago.
 
 

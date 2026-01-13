@@ -1,0 +1,518 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{caption}
+\usepackage{titling} \setlength{\droptitle}{-2cm}
+\pretitle{\begin{center} \includegraphics[width=1.5in, height=0.5in]{flinders-university-horizontal-master.png}\LARGE\\}
+\posttitle{\end{center}}
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{\pagestyle{fancy}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{Building Research Leaders for ECRs}
+\fancyfoot[R]{\thepage}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Building Research Leaders for Early Career Researchers},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Building Research Leaders for Early Career Researchers}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Evaluation (December 2025)}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\section{Executive Summary}\label{executive-summary}
+
+This report provides the feedback from the 2025 \emph{Building Research
+Leaders for Early Career Researchers} workshop series offered to 18
+early career researchers (ECRs) at Flinders University. This workshop
+series was sponsored by the Deputy Vice-Chancellor (Research) and
+participants were nominated by the College Deans (Research).
+
+The majority of the respondents found the workshop series valuable,
+engaging, and informative. They also appreciated the opportunity to
+connect with other ECRs across the University. Importantly, they
+reported that the workshop series inspired them to take immediate
+actions including finishing manuscripts that were near submission and
+scheduling time for research. They also attributed several successes to
+the workshop series, including new publications and a renewed commitment
+to focusing more on their core work.
+
+As indicated in my 2024 report, the workshop series does little to
+address research leadership, but it does help the ECRs to develop the
+skills they need to be a successful researcher, particularly for those
+balancing research with teaching or clinical roles, in the current
+academic environment.
+
+I recommend running this program again, targeting recruitment at early
+career researchers who are not in research-only roles. I also recommend
+revising the title to something more appropriate like ``Thriving in
+Research for Early Career Researchers'' or ``Research Productivity
+Skills for Early Career Researchers''.
+
+\section{Detailed Evaluation}\label{detailed-evaluation}
+
+Hugh Kearns from ThinkWell designed and delivered the \emph{Building
+Research Leaders for Early Career Researchers} workshop. This workshop
+was run as series of three full-day sessions from April to October 2025.
+Of the 18 participants in the workshop, 9 completed this evaluation.
+
+In previous years, this series was offered over 6 days (one full day and
+five half-days). In response to less than ideal attendance, I requested
+that Hugh collapse the material into fewer full days, with the hopes
+that attendance would be better. Psychologically, it's easier to commit
+to three full days rather than five half-days. We started this approach
+last year, and it worked well again this year; our attendance rate of
+91\% across the three days confirmed that this format worked for our
+participants.
+
+On average, the respondents to this survey attended 2.78 of the 3
+sessions, with everyone attending at least 2 sessions. Their
+explanations for why they attended the number of sessions that they did
+are shown in Table 9 in the Appendix. Most respondents indicated that
+they attended all three sessions because they valued the development
+opportunity; the two who reported that they could not attend one session
+cited a medical appointment and ``competing demands''. In response to
+another question, one researcher reported that three full-day sessions
+worked well because they ``could block out that time and prioritise it''
+(see Table 7).
+
+We asked participants to rate a several items about the workshop and the
+trainer on a scale from `strongly disagree' to `strongly agree' (see
+Figure 1). Most respondents agreed with the statements, with only a few
+neutral ratings and no disagreement ratings. Importantly, all
+respondents agreed that Hugh was engaging, an expert in the sector, that
+the content would be useful in their future roles, and that they learned
+strategies to increase their research productivity.
+
+\hfill\break
+Figure 1: Ratings of different aspects of the workshop
+
+\begin{verbatim}
+## Warning: `label` cannot be a <ggplot2::element_blank> object.
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brl_eval_report_files/figure-latex/plot the ratings-1.pdf}}
+
+\hfill\break
+
+As indicated in Table 1, the respondents had several expectations of the
+workshop series, including learning about research leadership, tips to
+thrive as a balanced academic, building a research profile, and general
+career advice for those early in their academic career.
+
+\begin{longtable}[t]{c>{\raggedright\arraybackslash}p{14cm}}
+\caption{\label{tab:info_workshop table}'What did you expect from this workshop?'}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endfirsthead
+\caption[]{'What did you expect from this workshop?' \textit{(continued)}}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{Development of my leadership skills}\\
+2 & From the title (Building Research Leaders), I probably expected sessions more focused on developing leadership. Some elements were focused on promoting research, supervision and long-term planning which fits with leadership, but others were more targeted toward time management and self-management.\\
+\cellcolor{gray!10}{3} & \cellcolor{gray!10}{Strategies to advance my ECR period}\\
+4 & I didn't bring expectations to the table for this one. The only expectation was coverage of the content in the outline provided ahead of time. 
+I had some apprehension regarding the program having previously attended workshops run by Hugh Kearns as a PhD Student as those sessions were incredibly irrelevant to my discipline and studies and were somewhat demoralising due to his approach to part-time studies\\
+\cellcolor{gray!10}{5} & \cellcolor{gray!10}{I wasn't sure at the beginning - strategies to be an effective researcher for future opportunities and leadership in academia.}\\
+\addlinespace
+6 & To be informed by best practices in leading research and also to manage multiple tasks being an academic in balanced position\\
+\cellcolor{gray!10}{8} & \cellcolor{gray!10}{How to navigate teaching/research world, publication strategies, and simply how to be the academic I dream of.}\\
+9 & I expected to learn strategies and skills to help me through the transition from a postdoctoral researcher working on tied funding to a group leader with responsibility for attracting funding, publishing research papers, teaching, and contributing to administration.\\*
+\end{longtable}
+
+The respondents varied as to whether the program met their expectations.
+Of the 9 respondents,
+
+\begin{itemize}
+\tightlist
+\item
+  44.44\% (\emph{n} = 4) said that the program exceeded their
+  expectations,
+\item
+  44.44\% (\emph{n} = 4) said that the program met their expectations,
+  and
+\item
+  11.11\% (\emph{n} = 1) said that the program partly met their
+  expectations.
+\item
+  No one said that the program did not meet their expectations.
+\end{itemize}
+
+Their explanations of how the program aligned with their expectations
+are shown in Table 2. As mentioned in the Executive Summary, most of the
+responses were very positive about the program. One researcher, however,
+felt that the content was targeted more toward PhD students; in
+contrast, other researchers indicated that the workshops focused on
+excelling in research as academics.
+
+\begin{longtable}[t]{c>{\raggedright\arraybackslash}p{14cm}}
+\caption{\label{tab:expectations table}'Please elaborate on how the workshop aligned with your expectations.'}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endfirsthead
+\caption[]{'Please elaborate on how the workshop aligned with your expectations.' \textit{(continued)}}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{I think at times the time could be used more effectively. While Hugh is an amazing facilitator, too much time was used on listning to others and their experiences. Ironically, I often felt Hugh went quickly over things or did not mention thing relevant to the early career researchers. I felt his sessions were pitched at PhD level.}\\
+\addlinespace
+2 & Although the workshops were not exactly what I was expecting, it still met my expectations as I learned a lot of useful tips on how to be a successful researcher while maintaining balanced mental health\\
+\addlinespace
+\cellcolor{gray!10}{3} & \cellcolor{gray!10}{The workshop helped normalise many struggles as an ECR, provided useful strategies and served as a reminder that I am already doing lots of right things to maximise my ECR period. Given I am a clinical psychologist, a lot of the strategies in the workshop were not new to me and I was already well versed in them}\\
+\addlinespace
+5 & Prioritising your time and workload
+Building a research narrative and publication strategy
+Writing effectively and how to reduce procrastination and zombie papers\\
+\addlinespace
+\cellcolor{gray!10}{6} & \cellcolor{gray!10}{The workshop series exceeded my expectations by offering practical examples, methods and research strategies very tailored to my needs}\\
+\addlinespace
+7 & The workshops were very helpful and provided much needed guidance on how to excel in research.\\
+\addlinespace
+\cellcolor{gray!10}{8} & \cellcolor{gray!10}{Managing teaching and research along side my life was one of the biggest issues I had, and Hugh answered that very well. Not just this, this is the only session that talked about practically developing a publication strategy, stepping into different research areas etc.}\\
+\addlinespace
+9 & Dr Hugh Kearns was an exceptional teacher. He facilitated deep insight into the patterns of thought and behaviour that typically create stress (leading to burnout), reduce productivity, and impede strategic advancement of one's career in research and teaching. 
+
+I particularly valued the evidence-based approach to Hugh's teaching, as well as how the content was integrated with well-established knowledge from psychology (particularly cognitive behavioural therapy or CBT). Having had personal experience with CBT, I felt that I was able to quickly appreciate the ideas and strategies that Hugh was teaching us. I suspect that even those without experience with CBT would have also learned quickly from Hugh, due to his exceptional communication skills and use of humour. 
+
+I also realised how much of an impact Hugh's work has had within academia in Australia, since I recognised many of the ideas presented, which I have heard (almost verbatim) from several of my more senior colleagues over the years.\\*
+\end{longtable}
+
+We had a mix of participants in this workshop (nominated by their Deans
+of Research). The respondents to the survey reflected this mix; 7
+respondents were less than 5 years post-PhD and 2 respondents were 5 to
+10 years post-PhD.
+
+Participants reported whether or not the program aligned with their
+career stage and explained why or why not it was suited to them (see
+Table 3). These responses were interesting because with the exception of
+one of the less- experienced researcher, all respondents thought it was
+appropriate for their career stage regardless of whether their PhD was
+conferred more or less than 5 years ago.
+
+\begin{table}[H]
+\centering
+\caption{\label{tab:careerstage table}'Please elaborate on whether this workshop was appropriate for your career stage.'}
+\centering
+\begin{tabular}[t]{cl>{\raggedright\arraybackslash}p{5cm}>{\raggedright\arraybackslash}p{5cm}}
+\toprule
+Respondent & Years post PhD & Reasons why it was appropriate & Reasons why it was not appropriate\\
+\midrule
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{Less than 5 years} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{PhD level}\\
+\addlinespace
+3 & Less than 5 years & Appropriate strategies and useful skills for career stage & \\
+\addlinespace
+\cellcolor{gray!10}{4} & \cellcolor{gray!10}{Less than 5 years} & \cellcolor{gray!10}{It covered a good level of future planning.} & \cellcolor{gray!10}{}\\
+\addlinespace
+5 & Less than 5 years & Very appropriate for ECR & \\
+\addlinespace
+\cellcolor{gray!10}{6} & \cellcolor{gray!10}{Less than 5 years} & \cellcolor{gray!10}{Very timing to my current needs} & \cellcolor{gray!10}{}\\
+\addlinespace
+7 & Less than 5 years & It provided all the basic and required information on how to improve as a reacher & \\
+\addlinespace
+\cellcolor{gray!10}{8} & \cellcolor{gray!10}{Less than 5 years} & \cellcolor{gray!10}{Yesssss. I just loved this. If you allow, I would attend this session over and over again.} & \cellcolor{gray!10}{}\\
+\addlinespace
+2 & 5 to 10 years & I think the content is relevant to researchers of all career stages but is probably more relevant to EMCR who are establishing themselves as independent researchers.. & \\
+\addlinespace
+\cellcolor{gray!10}{9} & \cellcolor{gray!10}{5 to 10 years} & \cellcolor{gray!10}{Very appropriate for my career stage because I am at the critical inflexion point when more responsibilities and expectations are placed on my time and attention. Managing these competing demands was a core topic of Hugh's teaching.} & \cellcolor{gray!10}{}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+As shown in Table 4, respondents were inspired by the program to take a
+variety of actions ranging from developing and revising research plans,
+implementing strategies for paper writing, tackling `zombie' manuscripts
+that were near submission, better time management, and seeking out new
+collaborations.
+
+\begin{longtable}[t]{c>{\raggedright\arraybackslash}p{14cm}}
+\caption{\label{tab:action table}'Did this workshop inspire you to take any immediate action(s)?'}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endfirsthead
+\caption[]{'Did this workshop inspire you to take any immediate action(s)?' \textit{(continued)}}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{Review my research plans. Re-consider what I say yes to in order to stay well and productive.}\\
+\addlinespace
+2 & Hugh provdes very useful tips that make researcher more empowered, and that are easy to apply and act on in a short time frame.\\
+\addlinespace
+\cellcolor{gray!10}{3} & \cellcolor{gray!10}{Yes - following the first workshop I was motivated to address all "zombie manuscripts" and submitted 2 manuscripts that were shelved in the span of 2 weeks.}\\
+\addlinespace
+4 & I have attempted to implement some of the time management approaches.\\
+\addlinespace
+\cellcolor{gray!10}{5} & \cellcolor{gray!10}{Yes, it is important for my workload and outputs to dedicate writing time every week.}\\
+\addlinespace
+6 & Yes. Primarly, how to prioritise multiple research activities and learn to say ''no'' for some situations\\
+\addlinespace
+\cellcolor{gray!10}{7} & \cellcolor{gray!10}{It helped me develop strategies for my research plan}\\
+\addlinespace
+8 & Research planning and publication strategy establishment; Actively look for collaborations; Give publicity for my research outcomes.\\
+\addlinespace
+9 & Absolutely. I have identified patterns of thought and behaviour that are impediments to my productivity and get in the way of me achieving my goals in a timely manner. I endeavour to implement skills that I have learned but acknowledge that these are skills that take repetition and persistence to develop. 
+
+\cellcolor{gray!10}{By far the most impactful thing that I took away from the workshop was the fact that a week is made up of 168 hours and one cannot add something 'new and shiny' without removing something else. And that if one continues to neglect sleep, family, and exercise, this will lead to burn-out and negative outcomes in the future. I am at a critical decision point now that I have a 15 month old son and a wife who is also pursuing a career as an academic. I have shifted my ambitions from wanting to be a top-performing academic and am now actively considering alternative career pathways in the years ahead so that I can support my wife to achieve her career goals while also providing a supportive and loving environment for my son.}\\*
+\end{longtable}
+
+As shown in Table 5, some but not all respondents credited research
+successes to the workshop series, including publications, successful
+grant applications and new research collaborations.
+
+\begin{longtable}[t]{c>{\raggedright\arraybackslash}p{14cm}}
+\caption{\label{tab:success table}'Do you credit any research successes to the workshop?'}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endfirsthead
+\caption[]{'Do you credit any research successes to the workshop?' \textit{(continued)}}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{Yes, probably been able to say no to projects that are not essential to my success.}\\
+2 & Yes, one of the topic discussed was "zombie papers", the concept of unfinished papers that have been sitting around and don't need to much to get finalised. Since the first workshop, I have submitted one paper and I'm now planning to finish two more.\\
+\cellcolor{gray!10}{3} & \cellcolor{gray!10}{Submitting shelved manuscripts}\\
+4 & Not really. I appreciate the tools and tips for managing approaches to work and ideas, but I still face limitations in actioning them due to expectations from within the University, particularly around prioritisation of teaching over research.\\
+\cellcolor{gray!10}{5} & \cellcolor{gray!10}{Mostly just reframed my thinking, stress re: workload to be more logical for productive writing, and collaborations.}\\
+\addlinespace
+6 & I am applying for new grants, writting new papers and primarly better managing research team that I man the CI\\
+\cellcolor{gray!10}{7} & \cellcolor{gray!10}{It helped me focus on my publications}\\
+8 & I got one of my zombie papers resurrected and published\\
+\cellcolor{gray!10}{9} & \cellcolor{gray!10}{Yes. And that success is to become sanguine about opportunities that I must turn down so that I can focus on the core of my work and ensure the quality and timeliness of that work. "Do you want to be a mile wide and an inch deep? Or an inch wide and a mile deep?"}\\*
+\end{longtable}
+
+The best parts of the workshop included interacting with other
+colleagues across the University, having an opportunity to plan for
+their careers, and realising that everyone is facing the same hurdles
+(see Table 6).
+
+\begin{longtable}[t]{c>{\raggedright\arraybackslash}p{14cm}}
+\caption{\label{tab:best_parts table}'What were the best parts of the workshop?'}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endfirsthead
+\caption[]{'What were the best parts of the workshop?' \textit{(continued)}}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{An opportunity to reflect on where I am at and connect with other researchers.}\\
+2 & Tips related to time management(publishing, choosing opportunities, focusing research) and self-management (imposter syndrome)\\
+\cellcolor{gray!10}{3} & \cellcolor{gray!10}{The skills and strategies learnt, also meeting other ECRs and being able to network. Normalizing many shared struggles}\\
+5 & Dedicated time away from workload meant I could prioritise this\\
+\cellcolor{gray!10}{6} & \cellcolor{gray!10}{Strategie to say ''no'' and how to manage time}\\
+\addlinespace
+7 & Understanding that the challenges I was facing are actually very common and all the researchers are more or less in the same boat. Hearing all the challenges I go through from an expert and receiving strategies on how to manage them was very validating,\\
+\cellcolor{gray!10}{8} & \cellcolor{gray!10}{I loved every session.}\\
+9 & Hugh.\\*
+\end{longtable}
+
+Participants had a few suggestions as to how the program could be
+improved, including focusing more on leading grant-funded projects and
+focusing more on all three roles of an academic rather than solely on
+research (see Table 7). I will inform Hugh that the respondents would
+prefer less time hearing from their colleagues. Although this is an
+important part of the workshop series, it seems that the focus needs to
+swing back to allow a little less time for sharing.
+
+\begin{longtable}[t]{c>{\raggedright\arraybackslash}p{14cm}}
+\caption{\label{tab:improvement table}'Any suggestions for improvement?'}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endfirsthead
+\caption[]{'Any suggestions for improvement?' \textit{(continued)}}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{Pitch it more at the post PhD researcher and the challenges we face in this space. I would have really liked to focus more on research goals. We spend many hours listening to what others experience and what is happening in their lives - too many details. When our work is so busy, it is difficult to justify spending hours listning to others stories.}\\
+2 & Maybe some more content on planning a research career as an EMCR and the how to get there\\
+\cellcolor{gray!10}{3} & \cellcolor{gray!10}{I think there could be a better balance between sharing and content. Given we are all busy researchers, it is a bit annoying to go around the room and get people to share things multiple times in the session. It takes way too long and I don't think it adds much.}\\
+4 & Stronger alignment with the other aspects of a balanced academic. Focusing on one part of the job is okay, but it fails to really engage with the most time consuming and complicated bits of being an academic.\\
+\cellcolor{gray!10}{5} & \cellcolor{gray!10}{3 workshops was enough. Full days were good as I could block out that time and prioritise it.}\\
+\addlinespace
+6 & No\\
+\cellcolor{gray!10}{7} & \cellcolor{gray!10}{One very challenge that I see all the researchers go through is how to prepare for funding, write application, and most importantly when successful in securing the grant how to manage a team of researchers toward completion of a project. It is usually the challenge that team members might not have the same goal or priority and projects won't go as planned. Some help and training on these challenges would greatly improve the workshop series and made in much more comprehensive.}\\
+8 & None. Hugh is the best to deliver this series.\\
+\cellcolor{gray!10}{9} & \cellcolor{gray!10}{No.}\\*
+\end{longtable}
+
+Finally, we asked the participants if there was anything else they
+wanted us to know (see Table 8).
+
+\begin{longtable}[t]{c>{\raggedright\arraybackslash}p{14cm}}
+\caption{\label{tab:anything else table}'Anything else you want us to know?'}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endfirsthead
+\caption[]{'Anything else you want us to know?' \textit{(continued)}}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{No}\\
+4 & I did not appreciate the comments on minimising teaching and service (effectively, the only thing you get from being good at teaching and admin is more teaching and admin so do an 'okay' job). This does not reflect reality and the need for balanced academics to be good all rounders - particularly when teaching is highly valued and prioritised at Flinders.\\
+\cellcolor{gray!10}{6} & \cellcolor{gray!10}{Thank you for this insightful and practical workshop!}\\
+7 & I believe the workshop would be extremely helpful for others and I myself would like to attend a similar workshop in a few years' time as a refresher. I think teaching specialists would also benefit from these types of workshops too.\\
+\cellcolor{gray!10}{8} & \cellcolor{gray!10}{Please continue to offer this to ECRs.}\\
+\addlinespace
+9 & No. Thank you for the opportunity. It has had an immensely positive impact on my life now and I believe it will continue to make a positive impact into the future.\\*
+\end{longtable}
+
+\hfill\break
+
+If you have any questions about this workshop series or report, please
+contact Dr Jen Beaudry, Manager, Researcher Training, Development and
+Communication in Research Development and Support.
+
+\newpage
+
+\section{Appendix}\label{appendix}
+
+\begin{longtable}[t]{c>{\raggedright\arraybackslash}p{14cm}}
+\caption{\label{tab:attendance table}We asked participants to explain why they attended the number of sessions that they did.}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endfirsthead
+\caption[]{We asked participants to explain why they attended the number of sessions that they did. \textit{(continued)}}\\
+\toprule
+Respondent & Response\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{I attended all since I overall enjoyed the PD opportunity}\\
+2 & Being able to attend all 3 sessions was one of the requirements to accept the invitation to particiapte in the workshop.\\
+\cellcolor{gray!10}{3} & \cellcolor{gray!10}{I was unable to attend the final workshop due to other competing demands.}\\
+4 & I attended all three as I knew the program required commitment to all three sessions and that each session would cover distinct content.\\
+\cellcolor{gray!10}{5} & \cellcolor{gray!10}{It was a great opportunity to be involved in this program so I prioritised my attendance for all 3 workshops}\\
+\addlinespace
+6 & All the contents and program were very closely connected with my current activites, plans and needs I have at the moment\\
+\cellcolor{gray!10}{8} & \cellcolor{gray!10}{This is by far the best workshop series I have ever attended. So, never wanted to miss a day.}\\
+9 & I had to attend a paediatric orthopaedic consultation for my 15 month old son who has developmental hip dysplasia. The appointment could not be moved and my wife was unable to attend.\\*
+\end{longtable}
+
+\end{document}
