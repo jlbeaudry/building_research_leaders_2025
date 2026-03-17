@@ -341,7 +341,7 @@ ggplot(ratings_summary, aes(fill = rating, y = percentage, x = rating_item)) +
       "Strongly agree"
     )
   ) +
-  labs (x = element_blank(),
+  labs (x = "",
         y = "Percentage") +
   theme_classic() +
 theme(legend.title = element_blank()) +
@@ -480,6 +480,7 @@ career_stage <- df %>%
 kable(
   career_stage,
   format = "latex",
+  longtable = T,
   booktabs = T, 
   align = c('clll'),
   linesep = "\\addlinespace",
@@ -546,6 +547,7 @@ kable(
 
 ```
 
+\newpage
 
 The best parts of the workshop included interacting with other colleagues across 
 the University, having an opportunity to plan for their careers, and realising
